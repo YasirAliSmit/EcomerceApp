@@ -1,0 +1,20 @@
+import { StyleSheet, Text, View } from 'react-native'
+import React from 'react'
+import { createSlice } from '@reduxjs/toolkit'
+
+const cartSlice = createSlice({
+    name:'cart',
+    initialState : [],
+    reducers:{
+        add(state,action){
+            state.push(action.payload)
+        },
+        remove(state,action){
+            return state.filter(item => item.id !== action.payload)
+        }
+    }
+})
+
+export default cartSlice.reducer
+export const    {add,remove} = cartSlice.actions
+const styles = StyleSheet.create({})
